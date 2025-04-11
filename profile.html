@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حسابي - محاضرتي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* تنسيقات صفحة الملف الشخصي */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .profile-info h2 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .profile-info p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .profile-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .stat-box .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-box .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .profile-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .profile-tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .profile-tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .profile-tab:hover:not(.active) {
+            background-color: #f5f5f5;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .edit-profile-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        
+        .edit-profile-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .saved-lectures .lectures-grid {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">محاضرتي</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="departments.html">التخصصات</a></li>
+                    <li><a href="upload.html">رفع محاضرة</a></li>
+                    <li><a href="profile.html" class="active">حسابي</a></li>
+                    <li><a href="login.html">تسجيل خروج</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="profile-header">
+            <img src="https://via.placeholder.com/150" alt="صورة المستخدم" class="profile-avatar">
+            
+            <div class="profile-info">
+                <h2>أحمد محمد</h2>
+                <p><i class="fas fa-user-graduate"></i> طالب في جامعة الملك سعود</p>
+                <p><i class="fas fa-laptop-code"></i> تخصص علوم الحاسب</p>
+                <p><i class="fas fa-envelope"></i> ahmed@example.com</p>
+                
+                <div class="profile-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">محاضرة منشورة</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">156</div>
+                        <div class="stat-label">تحميل</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">4.2</div>
+                        <div class="stat-label">تقييم متوسط</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="profile-tabs">
+            <div class="profile-tab active" data-tab="lectures">محاضراتي</div>
+            <div class="profile-tab" data-tab="saved">المحاضرات المحفوظة</div>
+            <div class="profile-tab" data-tab="downloads">المحاضرات المحملة</div>
+            <div class="profile-tab" data-tab="settings">الإعدادات</div>
+        </section>
+        
+        <section class="tab-content active" id="lectures-tab">
+            <h2>المحاضرات التي قمت برفعها</h2>
+            
+            <div class="lectures-grid">
+                <!-- محاضرة 1 -->
+                <div class="lecture-card">
+                    <div class="lecture-header">
+                        <span class="department-badge">علوم الحاسب</span>
+                        <h3>هياكل البيانات - الأشجار الثنائية</h3>
+                    </div>
+                    <p class="lecture-description">شرح مفصل للأشجار الثنائية وخوارزميات البحث فيها</p>
+                    <div class="lecture-meta">
+                        <span><i class="far fa-calendar-alt"></i> 10 أبريل 2023</span>
+                        <span><i class="fas fa-download"></i> 24 تحميل</span>
+                    </div>
+                    <div class="lecture-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-edit"></i> تعديل</a>
+                        <a href="#" class="download-btn" style="background-color: #e74c3c;"><i class="fas fa-trash"></i> حذف</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(8)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- محاضرة 2 -->
+                <div class="lecture-card">
+                    <div class="lecture-header">
+                        <span class="department-badge">علوم الحاسب</span>
+                        <h3>البرمجة الكائنية - التغليف</h3>
+                    </div>
+                    <p class="lecture-description">مفهوم التغليف في البرمجة الكائنية مع أمثلة بلغة جافا</p>
+                    <div class="lecture-meta">
+                        <span><i class="far fa-calendar-alt"></i> 5 مارس 2023</span>
+                        <span><i class="fas fa-download"></i> 18 تحميل</span>
+                    </div>
+                    <div class="lecture-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-edit"></i> تعديل</a>
+                        <a href="#" class="download-btn" style="background-color: #e74c3c;"><i class="fas fa-trash"></i> حذف</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(5)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="tab-content" id="saved-tab">
+            <h2>المحاضرات المحفوظة في المفضلة</h2>
+            
+            <div class="lectures-grid saved-lectures">
+                <!-- محاضرة 1 -->
+                <div class="lecture-card">
+                    <div class="lecture-header">
+                        <span class="department-badge">الهندسة</span>
+                        <h3>ميكانيكا المواد - الإجهادات والانفعالات</h3>
+                    </div>
+                    <p class="lecture-description">تمارين وحلول على الإجهادات والانفعالات في العناصر الإنشائية</p>
+                    <div class="lecture-meta">
+                        <span><i class="far fa-user"></i> د. خالد عبدالله</span>
+                        <span><i class="far fa-calendar-alt"></i> 5 أبريل 2023</span>
+                    </div>
+                    <div class="lecture-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> تحميل</a>
+                        <a href="#" class="download-btn" style="background-color: #e74c3c;"><i class="fas fa-bookmark"></i> إزالة</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="tab-content" id="downloads-tab">
+            <h2>المحاضرات التي قمت بتحميلها</h2>
+            
+            <div class="lectures-grid">
+                <!-- محاضرة 1 -->
+                <div class="lecture-card">
+                    <div class="lecture-header">
+                        <span class="department-badge">الطب</span>
+                        <h3>علم الأنسجة - الجهاز العصبي</h3>
+                    </div>
+                    <p class="lecture-description">التركيب النسيجي للخلايا العصبية وأنواعها</p>
+                    <div class="lecture-meta">
+                        <span><i class="far fa-user"></i> د. سارة محمد</span>
+                        <span><i class="far fa-calendar-alt"></i> 1 أبريل 2023</span>
+                        <span><i class="fas fa-download"></i> تم التحميل في: 15 أبريل 2023</span>
+                    </div>
+                    <div class="lecture-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> تحميل مجددًا</a>
+                        <a href="#" class="download-btn"><i class="fas fa-star"></i> تقييم</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="tab-content" id="settings-tab">
+            <h2>إعدادات الحساب</h2>
+            
+            <form class="auth-form" id="profileForm" style="max-width: 600px;">
+                <div class="form-group">
+                    <label for="profileImage">صورة الملف الشخصي</label>
+                    <input type="file" id="profileImage" name="profileImage" accept="image/*">
+                </div>
+                
+                <div class="form-row" style="display: flex; gap: 15px; margin-bottom: 20px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="firstName">الاسم الأول</label>
+                        <input type="text" id="firstName" name="firstName" value="أحمد" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="lastName">الاسم الأخير</label>
+                        <input type="text" id="lastName" name="lastName" value="محمد" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" value="ahmed@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="university">الجامعة</label>
+                    <select id="university" name="university" required>
+                        <option value="KSU" selected>جامعة الملك سعود</option>
+                        <option value="KAU">جامعة الملك عبدالعزيز</option>
+                        <option value="QU">جامعة القصيم</option>
+                        <option value="TU">جامعة الطائف</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="department">التخصص</label>
+                    <select id="department" name="department" required>
+                        <option value="cs" selected>علوم الحاسب</option>
+                        <option value="engineering">الهندسة</option>
+                        <option value="medicine">الطب</option>
+                        <option value="science">العلوم</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="currentPassword">كلمة المرور الحالية (للتغيير)</label>
+                    <input type="password" id="currentPassword" name="currentPassword">
+                </div>
+                
+                <div class="form-row" style="display: flex; gap: 15px; margin-bottom: 20px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="newPassword">كلمة المرور الجديدة</label>
+                        <input type="password" id="newPassword" name="newPassword">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="confirmNewPassword">تأكيد كلمة المرور الجديدة</label>
+                        <input type="password" id="confirmNewPassword" name="confirmNewPassword">
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">حفظ التغييرات</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن محاضرتي</h3>
+                    <p>منصة تعليمية تهدف إلى تسهيل مشاركة المحاضرات والمواد التعليمية بين الطلاب والمعلمين</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="terms.html">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعنا</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 محاضرتي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // معالجة تبويبات الملف الشخصي
+        const profileTabs = document.querySelectorAll('.profile-tab');
+        
+        profileTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // إزالة التنشيط من جميع التبويبات
+                profileTabs.forEach(t => t.classList.remove('active'));
+                // إضافة التنشيط للتبويب المحدد
+                this.classList.add('active');
+                
+                // إخفاء جميع محتويات التبويبات
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // إظهار محتوى التبويب المحدد
+                const tabId = this.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // معالجة تحديث الملف الشخصي
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // التحقق من كلمات المرور إذا تم إدخالها
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+            
+            if (newPassword && newPassword !== confirmNewPassword) {
+                alert('كلمتا المرور غير متطابقتين');
+                return;
+            }
+            
+            // جمع بيانات النموذج
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                university: document.getElementById('university').value,
+                department: document.getElementById('department').value,
+                currentPassword: document.getElementById('currentPassword').value,
+                newPassword: newPassword
+            };
+            
+            console.log('بيانات التحديث:', formData);
+            alert('تم تحديث الملف الشخصي بنجاح!');
+            
+            /*
+            // في التطبيق الحقيقي:
+            fetch('/api/update-profile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('تم تحديث الملف الشخصي بنجاح');
+                } else {
+                    alert(data.message || 'خطأ في تحديث الملف الشخصي');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء تحديث الملف الشخصي');
+            });
+            */
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحاضرات - محاضرتي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* تنسيقات إضافية لصفحة المحاضرات */
+        .lectures-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-controls select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .sort-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sort-controls label {
+            font-weight: 500;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 10px;
+        }
+        
+        .pagination a {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: var(--dark-color);
+        }
+        
+        .pagination a.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination a:hover:not(.active) {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">محاضرتي</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="departments.html">التخصصات</a></li>
+                    <li><a href="upload.html">رفع محاضرة</a></li>
+                    <li><a href="profile.html">حسابي</a></li>
+                    <li><a href="login.html">تسجيل خروج</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="lectures-header">
+            <h2>جميع المحاضرات</h2>
+            
+            <div class="filter-controls">
+                <select id="departmentFilter">
+                    <option value="">جميع التخصصات</option>
+                    <option value="medicine">الطب</option>
+                    <option value="engineering">الهندسة</option>
+                    <option value="science">العلوم</option>
+                    <option value="cs">علوم الحاسب</option>
+                </select>
+                
+                <select id="courseFilter">
+                    <option value="">جميع المواد</option>
+                    <option value="programming1">برمجة 1</option>
+                    <option value="datastructures">هياكل البيانات</option>
+                    <option value="algorithms">الخوارزميات</option>
+                </select>
+                
+                <select id="universityFilter">
+                    <option value="">جميع الجامعات</option>
+                    <option value="KSU">جامعة الملك سعود</option>
+                    <option value="KAU">جامعة الملك عبدالعزيز</option>
+                    <option value="QU">جامعة القصيم</option>
+                </select>
+            </div>
+            
+            <div class="sort-controls">
+                <label for="sortBy">ترتيب حسب:</label>
+                <select id="sortBy">
+                    <option value="newest">الأحدث</option>
+                    <option value="oldest">الأقدم</option>
+                    <option value="popular">الأكثر تحميلاً</option>
+                    <option value="rating">الأعلى تقييماً</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="lectures-grid">
+            <!-- محاضرة 1 -->
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="department-badge">علوم الحاسب</span>
+                    <h3>هياكل البيانات - الأشجار الثنائية</h3>
+                </div>
+                <p class="lecture-description">شرح مفصل للأشجار الثنائية وخوارزميات البحث فيها</p>
+                <div class="lecture-meta">
+                    <span><i class="far fa-user"></i> د. محمد أحمد</span>
+                    <span><i class="far fa-calendar-alt"></i> 10 أبريل 2023</span>
+                    <span><i class="fas fa-university"></i> جامعة الملك سعود</span>
+                </div>
+                <div class="lecture-actions">
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> تحميل</a>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(36)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- محاضرة 2 -->
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="department-badge">الهندسة</span>
+                    <h3>ميكانيكا المواد - الإجهادات والانفعالات</h3>
+                </div>
+                <p class="lecture-description">تمارين وحلول على الإجهادات والانفعالات في العناصر الإنشائية</p>
+                <div class="lecture-meta">
+                    <span><i class="far fa-user"></i> د. خالد عبدالله</span>
+                    <span><i class="far fa-calendar-alt"></i> 5 أبريل 2023</span>
+                    <span><i class="fas fa-university"></i> جامعة الملك فهد</span>
+                </div>
+                <div class="lecture-actions">
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> تحميل</a>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(28)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- محاضرة 3 -->
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="department-badge">الطب</span>
+                    <h3>علم الأنسجة - الجهاز العصبي</h3>
+                </div>
+                <p class="lecture-description">التركيب النسيجي للخلايا العصبية وأنواعها</p>
+                <div class="lecture-meta">
+                    <span><i class="far fa-user"></i> د. سارة محمد</span>
+                    <span><i class="far fa-calendar-alt"></i> 1 أبريل 2023</span>
+                    <span><i class="fas fa-university"></i> جامعة الملك عبدالعزيز</span>
+                </div>
+                <div class="lecture-actions">
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> تحميل</a>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(45)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- محاضرة 4 -->
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="department-badge">علوم الحاسب</span>
+                    <h3>خوارزميات البحث والترتيب</h3>
+                </div>
+                <p class="lecture-description">مقارنة بين خوارزميات البحث والترتيب المختلفة</p>
+                <div class="lecture-meta">
+                    <span><i class="far fa-user"></i> د. علي حسين</span>
+                    <span><i class="far fa-calendar-alt"></i> 28 مارس 2023</span>
+                    <span><i class="fas fa-university"></i> جامعة القصيم</span>
+                </div>
+                <div class="lecture-actions">
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> تحميل</a>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(32)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن محاضرتي</h3>
+                    <p>منصة تعليمية تهدف إلى تسهيل مشاركة المحاضرات والمواد التعليمية بين الطلاب والمعلمين</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="terms.html">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعنا</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 محاضرتي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // معالجة عوامل التصفية والترتيب
+        document.getElementById('departmentFilter').addEventListener('change', filterLectures);
+        document.getElementById('courseFilter').addEventListener('change', filterLectures);
+        document.getElementById('universityFilter').addEventListener('change', filterLectures);
+        document.getElementById('sortBy').addEventListener('change', sortLectures);
+        
+        function filterLectures() {
+            const department = document.getElementById('departmentFilter').value;
+            const course = document.getElementById('courseFilter').value;
+            const university = document.getElementById('universityFilter').value;
+            
+            console.log('تصفية المحاضرات حسب:', { department, course, university });
+            // في التطبيق الحقيقي، هنا سيتم إرسال طلب AJAX للخادم أو تصفية المحاضرات المعروضة
+        }
+        
+        function sortLectures() {
+            const sortBy = document.getElementById('sortBy').value;
+            console.log('ترتيب المحاضرات حسب:', sortBy);
+            // في التطبيق الحقيقي، هنا سيتم إعادة ترتيب المحاضرات
+        }
+    </script>
+</body>
+</html>

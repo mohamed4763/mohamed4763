@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاضرتي - منصة مشاركة المحاضرات الجامعية</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">محاضرتي</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="departments.html">التخصصات</a></li>
+                    <li><a href="upload.html">رفع محاضرة</a></li>
+                    <li><a href="login.html">تسجيل الدخول</a></li>
+                    <li><a href="register.html">إنشاء حساب</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="search-section">
+            <div class="search-box">
+                <input type="text" placeholder="ابحث عن محاضرة أو مادة...">
+                <button><i class="fas fa-search"></i> بحث</button>
+            </div>
+        </section>
+
+        <section class="departments">
+            <h2>التخصصات الرئيسية</h2>
+            <div class="departments-grid">
+                <div class="department-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>الطب</h3>
+                    <p>محاضرات كلية الطب البشري وطب الأسنان</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>الهندسة</h3>
+                    <p>محاضرات جميع تخصصات الهندسة</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>العلوم</h3>
+                    <p>محاضرات الكيمياء، الفيزياء، الأحياء</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>علوم الحاسب</h3>
+                    <p>محاضرات البرمجة وتقنية المعلومات</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="recent-lectures">
+            <h2>أحدث المحاضرات المضافة</h2>
+            <div class="lectures-grid">
+                <div class="lecture-card">
+                    <div class="lecture-header">
+                        <span class="department-badge">الهندسة</span>
+                        <h3>ميكانيكا المواد - المحاضرة الثالثة</h3>
+                    </div>
+                    <p class="lecture-description">تغطي أساسيات إجهادات القص في العناصر الإنشائية</p>
+                    <div class="lecture-meta">
+                        <span><i class="far fa-user"></i> د. أحمد محمد</span>
+                        <span><i class="far fa-calendar-alt"></i> 15 مايو 2023</span>
+                    </div>
+                    <div class="lecture-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> تحميل</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <span>(24)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lecture-card">
+                    <div class="lecture-header">
+                        <span class="department-badge">الطب</span>
+                        <h3>علم الأنسجة - الجهاز الهضمي</h3>
+                    </div>
+                    <p class="lecture-description">التركيب النسيجي لأعضاء الجهاز الهضمي</p>
+                    <div class="lecture-meta">
+                        <span><i class="far fa-user"></i> د. سارة عبدالله</span>
+                        <span><i class="far fa-calendar-alt"></i> 10 مايو 2023</span>
+                    </div>
+                    <div class="lecture-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> تحميل</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(42)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="lectures.html" class="see-more">عرض جميع المحاضرات <i class="fas fa-arrow-left"></i></a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن محاضرتي</h3>
+                    <p>منصة تعليمية تهدف إلى تسهيل مشاركة المحاضرات والمواد التعليمية بين الطلاب والمعلمين</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">الشروط والأحكام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعنا</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 محاضرتي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
